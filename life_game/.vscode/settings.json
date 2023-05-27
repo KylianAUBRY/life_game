@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "pthread.h": "c",
+        "unistd.h": "c",
+        "mlx.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
