@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kylian <kylian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kyaubry <kyaubry@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 01:38:47 by kylian            #+#    #+#             */
-/*   Updated: 2023/05/27 04:03:46 by kylian           ###   ########.fr       */
+/*   Updated: 2023/05/27 16:01:40 by kyaubry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	int		**map;
+	int		**map_temp;
 }			t_game;
 
 int			print_error(int error_code);
@@ -48,4 +49,15 @@ char		*ft_join(char *s1, char *s2);
 void		ft_buf_cut(char *dest);
 int			ft_len(char *s, int j);
 int			ft_strlen(char *src);
+int			init_tab(t_game *game, char *argv);
+void		tab_to_zero(t_game *game);
+int			init_map(t_game *game, char *argv);
+int			charg_map(t_game *game, char *src);
+int			ft_free_map(t_game *game);
+int			ft_free(t_game *game);
+void		draw_square(t_game *game, int x, int y);
+int			game_boucle(t_game *game);
+int			affi_game(t_game *game);
+void		affi_map(t_game *game);
+
 #endif

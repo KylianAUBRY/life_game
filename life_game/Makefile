@@ -7,6 +7,8 @@ SRCS	=	main.c	\
 			get_next_line.c \
 			get_next_line_utils.c \
 			utils.c \
+			init.c \
+			ft_free.c \
 
 OBJ =	${SRCS:.c=.o}
 
