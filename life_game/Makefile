@@ -9,6 +9,8 @@ SRCS	=	main.c	\
 			utils.c \
 			init.c \
 			ft_free.c \
+			ft_hand.c \
+			ft_affi_hand.c \
 
 OBJ =	${SRCS:.c=.o}
 

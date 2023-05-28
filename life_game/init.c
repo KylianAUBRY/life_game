@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyaubry <kyaubry@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kylian <kylian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:06:28 by kyaubry           #+#    #+#             */
-/*   Updated: 2023/05/27 18:26:51 by kyaubry          ###   ########.fr       */
+/*   Updated: 2023/05/28 04:18:58 by kylian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	charg_map(t_game *game, char *src)
 
 	i = 0;
 	j = 200;
-	if (ft_strlen(src) > 270)
+	if (ft_strlen(src) > 479)
 		return (print_error(ERRCODE_FILE_NUMBER));
 	while (src[i] != '\n' && src[i])
 	{
@@ -48,7 +48,7 @@ int init_temp_map(t_game *game)
 	}
 	while (i < 270)
 	{
-		game->map_temp[i] = malloc(sizeof(int) * 270);
+		game->map_temp[i] = malloc(sizeof(int) * 480);
 		if (!game->map_temp[i])
 		{
 			while (--i >= 0)
@@ -96,12 +96,12 @@ void tab_to_zero(t_game *game)
 	while (++line < 270)
 	{
 		i = -1;
-		while (++i < 270)
+		while (++i < 480)
 			game->map[line][i] = 0;
 	}
 }
 
-int	init_tab(t_game *game, char *argv)
+int	init_tab(t_game *game, char *argv, int j)
 {
 	int	i;
 
@@ -114,7 +114,7 @@ int	init_tab(t_game *game, char *argv)
 	}
 	while (i < 270)
 	{
-		game->map[i] = malloc(sizeof(int) * 270);
+		game->map[i] = malloc(sizeof(int) * 480);
 		if (!game->map[i])
 		{
 			while (--i >= 0)
@@ -125,5 +125,7 @@ int	init_tab(t_game *game, char *argv)
 		i++;
 	}
 	tab_to_zero(game);
-	return (init_map(game, argv));
+	if (j == 1)
+		return (init_map(game, argv));
+	return (1);
 }

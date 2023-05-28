@@ -6,7 +6,7 @@
 /*   By: kylian <kylian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 01:54:30 by kylian            #+#    #+#             */
-/*   Updated: 2023/05/27 03:48:56 by kylian           ###   ########.fr       */
+/*   Updated: 2023/05/28 01:46:33 by kylian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int print_error(int error_code)
         ft_print_error("Error :\nonly the characters '0' or '1' are accepted in the map\n");
     else if (error_code == ERRCODE_OPEN)
         ft_print_error("Error :\nOpen did not work, check if the file passed in parameter is good\n");
+	else if (error_code == ERRCODE_PROCESSUS)
+		ft_print_error("Error :\nError creating child process\n");
     return (0);
 }
