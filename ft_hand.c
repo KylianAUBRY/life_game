@@ -6,7 +6,7 @@
 /*   By: kylian <kylian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 03:18:10 by kylian            #+#    #+#             */
-/*   Updated: 2023/05/28 04:01:16 by kylian           ###   ########.fr       */
+/*   Updated: 2023/05/29 01:03:43 by kylian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	*thread_routine(void *temp)
 
 	game = (t_game *)temp;
 	mlx_key_hook(game->win, key_hook_start, game);
-	mlx_hook(game->win, 17, 1L << 17, ft_free, NULL);
+	mlx_hook(game->win, 17, 1L << 17, ft_adieux_in_the_thread, NULL);
 	mlx_mouse_hook(game->win, handle_mouse_click, game);
 	mlx_loop_hook(game->mlx, affi_hand, game);
 	mlx_loop(game->mlx);
+	while (1);
+		;
 	return (NULL);
 }
 
@@ -61,6 +63,7 @@ int	hand_write(t_game *game)
 int	key_hook_start(int keycode, t_game *game)
 {
 	int	*result_ptr;
+	static int i = 0;
 
 	if (keycode == 65307)
 	{
@@ -70,9 +73,14 @@ int	key_hook_start(int keycode, t_game *game)
 	}
 	else if (keycode == 65293)
 	{
-		result_ptr = malloc(sizeof(int));
-		*result_ptr = 1;
-		pthread_exit(result_ptr);
+		if (i == 0)
+			i++;
+		else
+		{
+			result_ptr = malloc(sizeof(int));
+			*result_ptr = 1;
+			pthread_exit(result_ptr);
+		}
 	}
 	(void)game;
 	return (0);

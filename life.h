@@ -6,7 +6,7 @@
 /*   By: kylian <kylian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 01:38:47 by kylian            #+#    #+#             */
-/*   Updated: 2023/05/28 04:11:18 by kylian           ###   ########.fr       */
+/*   Updated: 2023/05/29 01:10:36 by kylian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void			draw_square_line(t_game *game, int x, int y, int color);
 void			affi_map_hand(t_game *game);
 int				handle_mouse_click(int button, int x, int y, t_game *game);
 int				affi_hand(t_game *game);
-int	hand_write(t_game *game);
+int				hand_write(t_game *game);
+char			*ft_itoa(int n);
 
 #endif
