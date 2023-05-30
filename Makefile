@@ -16,7 +16,7 @@ OBJ =	${SRCS:.c=.o}
 
 CC =	cc
 
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror -pthread -g
 
 .c.o:
 			$(CC) $(CFLAGS) -Iminilibx-linux  -Imlx_linux -c $< -o $(<:.c=.o)
