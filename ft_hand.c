@@ -31,7 +31,7 @@ void	*thread_routine(void *temp)
 	mlx_mouse_hook(game->win, handle_mouse_click, game);
 	mlx_loop_hook(game->mlx, affi_hand, game);
 	mlx_loop(game->mlx);
-	while (1);
+	while (1)
 		;
 	return (NULL);
 }
